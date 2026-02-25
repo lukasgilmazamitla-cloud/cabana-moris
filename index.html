@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cabañas Gil | Experiencias en Mazamitla</title>
+<title>Cabañas Gil | Mazamitla: Eventos, Aventura y Descanso</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -27,9 +27,10 @@ overflow-x: hidden;
 scroll-behavior: smooth;
 }
 
-/* Hero */
+/* HEADER CON FOTO DE FONDO (Usa la foto de la cabaña blanca) */
 header {
-background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('20260114_152337.jpg');
+/* Nota: Si usas Google Drive, cambia '20260210_175802.jpg' por el link de exportación mencionado arriba */
+background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://drive.google.com/file/d/1aVDczR-PB7NarG8_AJkOdusSPr782_Y3/view?usp=sharing');
 background-size: cover;
 background-position: center;
 background-attachment: fixed;
@@ -42,154 +43,155 @@ color: white;
 text-align: center;
 }
 
-h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 6rem); margin: 0; }
-.hero-sub { font-size: 1.2rem; letter-spacing: 4px; text-transform: uppercase; margin-top: 10px; }
+h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 10vw, 6rem); margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+.hero-sub { font-size: 1.2rem; letter-spacing: 5px; text-transform: uppercase; margin-top: 10px; font-weight: 300; }
 
 .container { max-width: 1200px; margin: auto; padding: 80px 20px; }
-h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; text-align: center; margin-bottom: 40px; }
+h2 { font-family: 'Playfair Display', serif; font-size: 3rem; text-align: center; margin-bottom: 40px; }
 
-/* Sección Tour 360 - NUEVA */
-.tour-section {
-background: linear-gradient(45deg, var(--primary), var(--dark));
-color: white;
-padding: 100px 20px;
-text-align: center;
-position: relative;
-overflow: hidden;
-}
-
-.tour-btn {
-background-color: transparent;
-color: white;
-padding: 20px 45px;
-border: 2px solid var(--gold);
-text-decoration: none;
-font-weight: bold;
-font-size: 1.2rem;
-display: inline-block;
-margin-top: 30px;
-transition: 0.4s;
-border-radius: 5px;
-}
-
-.tour-btn:hover {
-background-color: var(--gold);
-color: var(--dark);
-box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-}
-
-/* Cuadrícula de Servicios y Eventos */
-.grid-3 {
+/* SECCIÓN EVENTOS */
+.grid-events {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 30px;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 25px;
 }
-
-.card {
+.card-event {
 background: white;
 padding: 40px;
 border-radius: 20px;
-box-shadow: 0 15px 35px rgba(0,0,0,0.05);
 text-align: center;
+box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 transition: 0.3s;
 }
+.card-event:hover { transform: translateY(-10px); border-bottom: 5px solid var(--gold); }
+.card-event i { font-size: 3.5rem; color: var(--gold); margin-bottom: 20px; }
 
-.card:hover { transform: translateY(-10px); }
-.card i { font-size: 3rem; color: var(--gold); margin-bottom: 20px; }
+/* SECCIÓN TOUR 360 */
+.tour-box {
+background: var(--dark);
+color: white;
+padding: 100px 20px;
+text-align: center;
+border-radius: 50px;
+margin: 40px 20px;
+}
+.btn-tour {
+background: transparent;
+color: var(--gold);
+border: 2px solid var(--gold);
+padding: 15px 40px;
+font-weight: bold;
+text-decoration: none;
+display: inline-block;
+margin-top: 25px;
+transition: 0.4s;
+border-radius: 50px;
+}
+.btn-tour:hover { background: var(--gold); color: white; }
 
-/* Galería */
+/* SECCIÓN AVENTURA */
+.adventure {
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+gap: 50px;
+background: #f0ede9;
+padding: 60px;
+border-radius: 30px;
+}
+.adventure-img { flex: 1; min-width: 300px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+.adventure-img img { width: 100%; display: block; }
+
+/* GALERÍA */
 .gallery {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 gap: 15px;
 }
+.gallery-item { height: 300px; border-radius: 15px; overflow: hidden; position: relative; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.gallery-item:hover img { transform: scale(1.1); filter: brightness(70%); }
 
-.gallery-item {
-height: 350px;
-border-radius: 15px;
-overflow: hidden;
-position: relative;
-}
-
-.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-.gallery-item:hover img { transform: scale(1.1); filter: brightness(60%); }
-
-/* Mapa e Info */
-iframe { width: 100%; height: 450px; border-radius: 30px; border: none; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-
-footer { background: var(--dark); color: white; padding: 60px 20px; text-align: center; }
+/* FOOTER Y MAPA */
+iframe { width: 100%; height: 400px; border-radius: 25px; border: none; margin-top: 30px; }
+footer { background: var(--primary); color: white; padding: 80px 20px; text-align: center; }
+.btn-wa { background: #25d366; color: white; padding: 15px 35px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block; margin-top: 20px; }
 </style>
 </head>
 <body>
 
 <header>
-<div data-aos="fade-up" data-aos-duration="2000">
+<div data-aos="zoom-in" data-aos-duration="1500">
 <h1>Cabañas Gil</h1>
-<p class="hero-sub">Donde la naturaleza se siente en casa</p>
+<p class="hero-sub">Mazamitla, Jalisco</p>
 </div>
 </header>
 
 <div class="container">
-<h2 data-aos="fade-down">Mucho más que una Cabaña</h2>
-<div class="grid-3">
-<div class="card" data-aos="zoom-in">
-<i class="fas fa-heart"></i>
-<h3>Experiencias Inolvidables</h3>
-<p>Bodas, Bautizos, XV Años y Despedidas. Coordinamos cada detalle para que tú solo disfrutes.</p>
+<h2 data-aos="fade-up">Cordinamos tus Eventos</h2>
+<div class="grid-events">
+<div class="card-event" data-aos="fade-up" data-aos-delay="100">
+<i class="fas fa-church"></i>
+<h3>Bodas y Bautizos</h3>
+<p>El escenario perfecto para momentos sagrados y familiares.</p>
 </div>
-<div class="card" data-aos="zoom-in" data-aos-delay="200">
-<i class="fas fa-motorcycle"></i>
-<h3>Aventura Extrema</h3>
-<p>Renta de Motos y RZR para explorar los senderos y la Sierra del Tigre.</p>
+<div class="card-event" data-aos="fade-up" data-aos-delay="200">
+<i class="fas fa-crown"></i>
+<h3>XV Años</h3>
+<p>Celebraciones mágicas rodeadas de pinos y naturaleza.</p>
 </div>
-<div class="card" data-aos="zoom-in" data-aos-delay="400">
-<i class="fas fa-mountain"></i>
-<h3>Vistas Únicas</h3>
-<p>Ubicación privilegiada rodeada de pinos y el aire más puro de Jalisco.</p>
+<div class="card-event" data-aos="fade-up" data-aos-delay="300">
+<i class="fas fa-cocktail"></i>
+<h3>Despedidas</h3>
+<p>Privacidad y diversión para despedidas de soltera inolvidables.</p>
 </div>
 </div>
 </div>
 
-<section class="tour-section">
-<div class="container" data-aos="fade-up">
-<i class="fas fa-vr-cardboard" style="font-size: 4rem; color: var(--gold); margin-bottom: 20px;"></i>
-<h2>Experiencia Inmersiva 360°</h2>
-<p style="font-size: 1.2rem; max-width: 700px; margin: auto;">
-¿Quieres ver Mazamitla desde las nubes? Disfruta de nuestra vista de drone y recorre el entorno virtualmente.
-</p>
-<a href="https://tourpormazamitla360.com/mazamitlainmobilaria/#media-name=Casa%20del%20Lago%20-vista%20drone&yaw=53.39&pitch=-27.63&fov=130.00"
-target="_blank" class="tour-btn">
-<i class="fas fa-play-circle"></i> INICIAR TOUR VIRTUAL
-</a>
-</div>
+<section class="tour-box" data-aos="zoom-out">
+<i class="fas fa-street-view" style="font-size: 3rem; color: var(--gold);"></i>
+<h2>Tour Virtual 360°</h2>
+<p>Vive la experiencia desde el cielo con nuestra vista de drone y recorre Mazamitla.</p>
+<a href="https://tourpormazamitla360.com/mazamitlainmobilaria/#media-name=Casa%20del%20Lago%20-vista%20drone&yaw=53.39&pitch=-27.63&fov=130.00" target="_blank" class="btn-tour">VER AHORA</a>
 </section>
 
 <div class="container">
-<h2 data-aos="fade-right">Galería</h2>
-<div class="gallery">
-<div class="gallery-item" data-aos="fade-up"><img src="20260114_152416.jpg" alt="Fachada"></div>
-<div class="gallery-item" data-aos="fade-up" data-aos-delay="100"><img src="20260114_152440.jpg" alt="Nocturna"></div>
-<div class="gallery-item" data-aos="fade-up" data-aos-delay="200"><img src="IMG-20250624-WA0030.jpg" alt="Recámara"></div>
-<div class="gallery-item" data-aos="fade-up"><img src="IMG-20250624-WA0028.jpg" alt="Interior"></div>
-<div class="gallery-item" data-aos="fade-up" data-aos-delay="100"><img src="IMG-20250624-WA0031.jpg" alt="Baño"></div>
-<div class="gallery-item" data-aos="fade-up" data-aos-delay="200"><img src="atardecer cabana moris.jpg" alt="Exterior"></div>
+<div class="adventure">
+<div class="adventure-text" data-aos="fade-right">
+<h2>Renta de Motos y RZR</h2>
+<p>Explora la Sierra del Tigre con adrenalina pura. Contamos con vehículos todo terreno listos para la aventura.</p>
+<ul style="list-style: none; padding: 0; line-height: 2;">
+<li><i class="fas fa-check text-gold"></i> Rutas guiadas</li>
+<li><i class="fas fa-check text-gold"></i> Equipo de seguridad</li>
+<li><i class="fas fa-check text-gold"></i> Diversión garantizada</li>
+</ul>
+</div>
+<div class="adventure-img" data-aos="fade-left">
+<img src="20260114_152419.jpg" alt="Aventura Mazamitla">
 </div>
 </div>
 
-<div class="container" data-aos="zoom-in">
-<h2>Estamos aquí</h2>
-<iframe src="https://maps.app.goo.gl/16fpBX5DRiuVKi176?g_st=iwb"></iframe>
+<h2 style="margin-top: 100px;">Nuestras Cabañas</h2>
+<div class="gallery">
+<div class="gallery-item" data-aos="flip-left"><img src="20260114_152416.jpg" alt="Exterior"></div>
+<div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="20260114_152440.jpg" alt="Noche"></div>
+<div class="gallery-item" data-aos="flip-left" data-aos-delay="200"><img src="IMG-20250624-WA0030.jpg" alt="Interior"></div>
+<div class="gallery-item" data-aos="flip-left"><img src="IMG-20250624-WA0028.jpg" alt="Sala"></div>
+<div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="IMG-20250624-WA0031.jpg" alt="Baño"></div>
+<div class="gallery-item" data-aos="flip-left" data-aos-delay="200"><img src="20260114_152337.jpg" alt="Fachada"></div>
+</div>
+
+<h2 style="margin-top: 100px;">Ubicación</h2>
+<iframe src="<iframe src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d3841313.7789413496!2d-103.013946!3d19.9124763!3m2!1i1024!2i768!4f13.1!2m1!1scabanas%20gil!5e0!3m2!1sen!2smx!4v1772012178324!5m2!1sen!2smx" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"></iframe>
 </div>
 
 <footer>
-<h3 style="font-family: 'Playfair Display'; font-size: 2.5rem; margin-bottom: 10px;">Cabañas Gil</h3>
-<p>Expertos en hospedaje de altura y eventos especiales.</p>
-<div style="margin: 30px 0;">
-<a href="https://wa.me/3329573058" style="color: white; font-size: 2rem; margin: 0 15px;"><i class="fab fa-whatsapp"></i></a>
-<a href="#" style="color: white; font-size: 2rem; margin: 0 15px;"><i class="fab fa-facebook"></i></a>
-<a href="#" style="color: white; font-size: 2rem; margin: 0 15px;"><i class="fab fa-instagram"></i></a>
+<h2>Cabañas Gil</h2>
+<p>Reserva tu fecha especial con nosotros.</p>
+<a href="https://wa.me/523329573058" class="btn-wa"><i class="fab fa-whatsapp"></i> Contactar por WhatsApp</a>
+<div style="margin-top: 40px; opacity: 0.7; font-size: 0.9rem;">
+<p>Mazamitla, Jalisco, México. © 2026</p>
 </div>
-<p>© 2026 Cabañas Gil - Mazamitla, Jalisco.</p>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
