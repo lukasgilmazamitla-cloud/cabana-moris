@@ -16,6 +16,7 @@
             --gold: #d4af37;
             --light: #fafafa;
             --dark: #1a1a1a;
+            --forest: #1b261d; /* Nuevo color para sección cabañas */
         }
 
         body {
@@ -120,7 +121,7 @@
         .adventure-img { flex: 1; min-width: 300px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .adventure-img img { width: 100%; display: block; }
 
-        /* GALERÍA */
+        /* GALERÍA DE EVENTOS */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -129,6 +130,58 @@
         .gallery-item { height: 300px; border-radius: 15px; overflow: hidden; position: relative; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .gallery-item:hover img { transform: scale(1.1); filter: brightness(70%); }
+
+        /* --- NUEVA SECCIÓN DE CABAÑAS (ESTILO BOSQUE) --- */
+        .cabanas-section {
+            background-color: var(--forest);
+            background-image: url('https://www.transparenttextures.com/patterns/pinstriped-suit.png'); 
+            padding: 100px 0;
+            margin-top: 80px;
+            border-radius: 60px 60px 0 0;
+            color: #fdfaf6;
+        }
+        .cabanas-section h2 { color: var(--gold); margin-bottom: 60px; }
+
+        .cabana-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 30px;
+            margin-bottom: 80px;
+            overflow: hidden;
+            transition: 0.4s;
+        }
+        .cabana-card:hover { border-color: var(--gold); background: rgba(255, 255, 255, 0.05); }
+
+        .cabana-header { padding: 40px; text-align: center; }
+        .cabana-header h3 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--gold); margin: 0 0 15px 0; }
+        .cabana-description { max-width: 850px; margin: 0 auto 30px; font-size: 1.15rem; line-height: 1.8; color: #e0e0e0; font-weight: 300; }
+
+        .cabana-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            padding: 0 30px 40px;
+        }
+        .cabana-gallery img { width: 100%; height: 220px; object-fit: cover; border-radius: 15px; transition: 0.3s; cursor: pointer; }
+        .cabana-gallery img:hover { transform: scale(1.03); filter: brightness(1.1); }
+
+        .pino-icon { font-size: 2.5rem; color: #4a6741; margin-bottom: 15px; display: block; }
+
+        /* Botón Cotizar Específico */
+        .btn-quote {
+            background: var(--gold);
+            color: #1b261d;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 20px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-quote:hover { background: #fff; transform: scale(1.05); }
 
         /* FOOTER Y MAPA */
         iframe { width: 100%; height: 400px; border-radius: 25px; border: none; margin-top: 30px; }
@@ -170,16 +223,13 @@
 </head>
 <body>
 
-<!-- REPRODUCTOR DE AUDIO -->
 <div class="music-player">
     <button class="music-btn" id="musicToggle">
         <i class="fas fa-play" id="musicIcon"></i>
     </button>
     <span class="music-text">Música de fondo</span>
-    <!-- REEMPLAZA 'musica.mp3' con tu archivo de audio -->
     <audio id="bgMusic" loop>
         <source src="bensound-floatinggarden.mp3" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio.
     </audio>
 </div>
 
@@ -244,63 +294,86 @@
     </div>
 
     <div id="galeria-eventos" style="padding-top: 100px;">
-        <h2>Galeria de Eventos</h2>
+        <h2>Galería de Eventos</h2>
         <div class="gallery">
-            <div class="gallery-item" data-aos="flip-left"><img src="bodabosque2.jpg" alt="Boda"></div>
-            <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="despedidamesa.jpg" alt="Cumpleaños"></div>
-            <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="despedidagirls.jpg" alt="Despedidas de Soltera"></div>
-            <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="despedidaboys.jpg" alt="Celebracion de Divorcio"></div>
-            <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="snacktable.jpg" alt="antojitos"></div>
-            <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="snacktable2.jpg" alt="antojitos"></div>
-            <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="snacktable3.jpg" alt="antojitos"></div>
-            <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="fiestastematicas.jpg" alt="tema"></div>
-            <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="fiestastematicas2.jpg" alt="tema"></div>
-            <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="birthday.jpg" alt="Cumpleanos"></div>
-            <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="birthday1.jpg" alt="Cumpleanos"></div>
-            <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="birthday2.jpg" alt="Cumpleanos"></div>
-            <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="birthday3.jpg" alt="Cumpleanos"></div>
-            <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="escapadaromantica.jpg" alt="parejas"></div>
-            <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="birthdaytable.jpg" alt="Cumpleanos"></div>
-         
-
-            
+            <div class="gallery-item" data-aos="flip-left"><img src="bodabosque2.jpg"></div>
+            <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="despedidamesa.jpg"></div>
+            <div class="gallery-item" data-aos="flip-left"><img src="despedidagirls.jpg"></div>
+            <div class="gallery-item" data-aos="flip-left"><img src="despedidaboys.jpg"></div>
+            <div class="gallery-item" data-aos="flip-left"><img src="snacktable.jpg"></div>
+            <div class="gallery-item" data-aos="flip-left"><img src="snacktable2.jpg"></div>
+            <div class="gallery-item" data-aos="flip-left"><img src="snacktable3.jpg"></div>
+            <div class="gallery-item" data-aos="flip-left"><img src="fiestastematicas.jpg"></div>
         </div>
     </div>
+</div>
 
-    <h2 style="margin-top: 100px;">Cabañas Gil</h2>
-    <div class="gallery">
-        <div class="gallery-item" data-aos="flip-left"><img src="jardin cabana moris.jpg"></div>
-        <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="cabana moris noche.jpg"></div>
-        <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="cabana moris 2.jpg"></div>
-        <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="cabana moris 3.jpg"></div>
-        <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="atardecer cabana moris.jpg"></div>
-    </div>
-  
-    <h2 style="margin-top: 100px;">Cabaña del Lago</h2>
-    <div class="gallery">
-        <div class="gallery-item" data-aos="flip-left"><img src="cabanadellago.jpg"></div>
-        <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="cabanadellago2.jpg"></div>
-        <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="cabanadellago4.jpg"></div>
-        <div class="gallery-item" data-aos="flip-left"data-aos-delay="100"><img src="cabanadellago2 (1).jpg"></div>
-    </div>
-  
-    <h2 style="margin-top: 100px;">Cabañas en La Toscana</h2>
-    <div class="gallery">
-        <div class="gallery-item" data-aos="flip-left"><img src="latoscana1.jpg"></div>
-        <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="latoscana2.jpg"></div>
-        <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="latoscana3.jpg"></div>
-        <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="latoscana4.jpg"></div>
-        <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="latoscana5.jpg"></div>
-        <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="latoscana6.jpg"></div> 
-        <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="latoscana7.jpg"></div>
-        <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="latoscana8.jpg"></div>
-        <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="latoscana9.jpg"></div> 
-        <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="latoscana10.jpg"></div>                                                                                                
-    </div>
+<section class="cabanas-section">
+    <div class="container">
+        <h2 data-aos="fade-up">Nuestros Refugios en el Bosque</h2>
 
+        <div class="cabana-card" data-aos="fade-up">
+            <div class="cabana-header">
+                <i class="fas fa-tree pino-icon"></i>
+                <h3>Cabañas Gil</h3>
+                <p class="cabana-description">
+                    Disfrute de la calidez de nuestra <strong>cabaña rústica tradicional</strong>. Rodeada de un <strong>amplio jardín</strong> y equipada con una <strong>terraza privada para eventos</strong>, es el lugar perfecto para quienes buscan la esencia auténtica de la montaña con todas las comodidades.
+                </p>
+                <a href="https://wa.me/523329573058?text=Hola! Me interesa cotizar una estancia en Cabañas Gil" class="btn-quote" target="_blank">Cotizar Cabañas Gil</a>
+            </div>
+            <div class="cabana-gallery">
+                <img src="jardin cabana moris.jpg">
+                <img src="cabana moris noche.jpg">
+                <img src="cabana moris 2.jpg">
+                <img src="cabana moris 3.jpg">
+                <img src="atardecer cabana moris.jpg">
+            </div>
+        </div>
+
+        <div class="cabana-card" data-aos="fade-up">
+            <div class="cabana-header">
+                <i class="fas fa-water pino-icon"></i>
+                <h3>Cabaña del Lago</h3>
+                <p class="cabana-description">
+                    Una joya de <strong>lujo extremo y privacidad total</strong>. Ubicada en un terreno enorme con su propio lago privado, cuenta con una <strong>terraza de eventos equipada con barra</strong> y jardines impecables. A solo 5 minutos del centro, es el spot de ensueño para <strong>bodas y cumpleaños</strong> inolvidables.
+                </p>
+                <a href="https://wa.me/523329573058?text=Hola! Me gustaría información y cotización de la Cabaña del Lago" class="btn-quote" target="_blank">Cotizar Cabaña del Lago</a>
+            </div>
+            <div class="cabana-gallery">
+                <img src="cabanadellago.jpg">
+                <img src="cabanadellago2.jpg">
+                <img src="cabanadellago4.jpg">
+                <img src="cabanadellago2 (1).jpg">
+            </div>
+        </div>
+
+        <div class="cabana-card" data-aos="fade-up">
+            <div class="cabana-header">
+                <i class="fas fa-mountain pino-icon"></i>
+                <h3>Cabañas en La Toscana</h3>
+                <p class="cabana-description">
+                    Exclusividad en su máxima expresión dentro de un <strong>fraccionamiento privado</strong>. Diseñadas para la convivencia de alta gama, estas residencias permiten hospedar hasta <strong>16 personas cómodamente</strong>, ofreciendo un refugio seguro y sofisticado para toda la familia.
+                </p>
+                <a href="https://wa.me/523329573058?text=Hola! Me interesa cotizar para un grupo en las Cabañas de La Toscana" class="btn-quote" target="_blank">Cotizar La Toscana</a>
+            </div>
+            <div class="cabana-gallery">
+                <img src="latoscana1.jpg">
+                <img src="latoscana2.jpg">
+                <img src="latoscana3.jpg">
+                <img src="latoscana4.jpg">
+                <img src="latoscana5.jpg">
+                <img src="latoscana6.jpg"> 
+                <img src="latoscana7.jpg">
+                <img src="latoscana8.jpg">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
     <h2 style="margin-top: 100px;">Ubicación</h2>
     <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3749.569427678125!2d-103.01652092477156!3d19.912476281472596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842909003b66bd69%3A0x6ad44287e21d0f4f!2sCaba%C3%B1as%20gil!5e0!3m2!1ses-419!2smx!4v1710000000000!5m2!1ses-419!2smx"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3748.2415170363!2d-103.0235!3d19.9145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDU0JzUyLjIiTiAxMDPCsDAxJzI0LjYiVw!5e0!3m2!1ses!2smx!4v1620000000000!5m2!1ses!2smx"
         width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
     </iframe> 
 </div>
@@ -318,7 +391,6 @@
 <script>
     AOS.init({ duration: 1000, once: true });
 
-    // LÓGICA DE MÚSICA
     const music = document.getElementById('bgMusic');
     const toggleBtn = document.getElementById('musicToggle');
     const icon = document.getElementById('musicIcon');
