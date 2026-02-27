@@ -1,20 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <style>
+    /* 1. Estilo de la flecha */
+    .flecha-continuar {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 3rem;
+      color: #333;
+      cursor: pointer;
+      
+      /* 2. Configuración de la aparición */
+      opacity: 0; /* Invisible al inicio */
+      animation: aparecer 0.5s ease-out forwards, rebote 2s infinite;
+      animation-delay: 2s; /* ESPERA 2 SEGUNDOS ANTES DE APARECER */
+    }
+
+    /* Animación para que aparezca gradualmente */
+    @keyframes aparecer {
+      from { opacity: 0; transform: translate(-50%, 20px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+
+    /* Animación de rebote para indicar movimiento */
+    @keyframes rebote {
+      0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+      40% { transform: translate(-50%, -10px); }
+      60% { transform: translate(-50%, -5px); }
+    }
+  </style>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cabañas Gil | Mazamitla: Eventos, Aventura y Descanso</title>
-    <style>
-  .flecha-continuar {
-    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-    font-size: 3rem; color: #333; cursor: pointer; z-index: 1000;
-    transition: opacity 0.5s ease; opacity: 0; 
-    animation: aparecer 0.5s ease-out forwards, rebote 2s infinite;
-    animation-delay: 2s; 
-  }
-  @keyframes aparecer { from { opacity: 0; transform: translate(-50%, 20px); } to { opacity: 1; transform: translate(-50%, 0); } }
-  @keyframes rebote { 0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); } 40% { transform: translate(-50%, -10px); } 60% { transform: translate(-50%, -5px); } }
-</style>
+
 
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
@@ -433,18 +454,9 @@
         }
     });
 </script>
-  <script>
-  window.onscroll = function() {
-    const flecha = document.getElementById("flechaScroll");
-    if (window.scrollY > 50) {
-      flecha.style.opacity = "0";
-      setTimeout(() => { flecha.style.display = "none"; }, 500);
-    } else {
-      flecha.style.display = "block";
-      setTimeout(() => { flecha.style.opacity = "1"; }, 10);
-    }
-  };
-</script>
+<div class="flecha-continuar" onclick="window.scrollBy({top: 500, behavior: 'smooth'})">
+    &#9660;
+  </div>
   
 </body>
 </html>
