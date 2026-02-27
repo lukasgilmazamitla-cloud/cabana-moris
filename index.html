@@ -11,6 +11,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
+        .banner-principal {
+  width: 100%;
+  height: 400px;
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('TU_IMAGEN_AQUI.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
         :root {
             --primary: #4e342e;
             --accent: #a1887f;
@@ -20,7 +33,16 @@
             --forest: #1b261d; /* Nuevo color para sección cabañas */
         }
 
-        body {
+        body 
+        <header class="banner-principal">
+  <div>
+    <img src="LOGO_PARCHE.png" alt="Cabañas Gil Logo" style="width: 150px;">
+    <h1 style="font-size: 3rem; margin-top: 10px;">Naturaleza y Descanso</h1>
+  </div>
+</header>
+
+        
+        {
             font-family: 'Raleway', sans-serif;
             margin: 0;
             background-color: var(--light);
