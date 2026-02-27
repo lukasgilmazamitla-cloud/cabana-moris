@@ -2,35 +2,34 @@
 <html lang="es">
 <head>
     <style>
-    /* 1. Estilo de la flecha */
-    .flecha-continuar {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 3rem;
-      color: #333;
-      cursor: pointer;
-      
-      /* 2. Configuración de la aparición */
-      opacity: 0; /* Invisible al inicio */
-      animation: aparecer 0.5s ease-out forwards, rebote 2s infinite;
-      animation-delay: 2s; /* ESPERA 2 SEGUNDOS ANTES DE APARECER */
-    }
+  .flecha-continuar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    color: #333;
+    cursor: pointer;
+    z-index: 1000;
+    transition: opacity 0.5s ease; /* Transición suave para desaparecer */
+    
+    opacity: 0; 
+    animation: aparecer 0.5s ease-out forwards, rebote 2s infinite;
+    animation-delay: 2s; 
+  }
 
-    /* Animación para que aparezca gradualmente */
-    @keyframes aparecer {
-      from { opacity: 0; transform: translate(-50%, 20px); }
-      to { opacity: 1; transform: translate(-50%, 0); }
-    }
+  @keyframes aparecer {
+    from { opacity: 0; transform: translate(-50%, 20px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+  }
 
-    /* Animación de rebote para indicar movimiento */
-    @keyframes rebote {
-      0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
-      40% { transform: translate(-50%, -10px); }
-      60% { transform: translate(-50%, -5px); }
-    }
-  </style>
+  @keyframes rebote {
+    0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+    40% { transform: translate(-50%, -10px); }
+    60% { transform: translate(-50%, -5px); }
+  }
+</style>
+
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -454,9 +453,22 @@
         }
     });
 </script>
-<div class="flecha-continuar" onclick="window.scrollBy({top: 500, behavior: 'smooth'})">
-    &#9660;
-  </div>
+<script>
+  // Detecta el scroll del usuario
+  window.onscroll = function() {
+    const flecha = document.getElementById("flechaScroll");
+    // Si el usuario baja más de 50px, la flecha se oculta
+    if (window.scrollY > 50) {
+      flecha.style.opacity = "0";
+      // Espera a que termine la animación de opacidad para quitarla del flujo
+      setTimeout(() => { flecha.style.display = "none"; }, 500);
+    } else {
+      // Opcional: si vuelve arriba de todo, vuelve a aparecer
+      flecha.style.display = "block";
+      setTimeout(() => { flecha.style.opacity = "1"; }, 10);
+    }
+  };
+</script>
   
 </body>
 </html>
