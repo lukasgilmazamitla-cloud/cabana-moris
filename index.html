@@ -1,5 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú Superior Derecha</title>
+    <style>
+        /* Estilos básicos para que la página sea navegable */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            scroll-behavior: smooth; /* Hace que el salto sea fluido */
+        }
+
+        /* Contenedor de la barra de navegación */
+        nav {
+            position: fixed; /* Se queda fijo al hacer scroll */
+            top: 0;
+            right: 0;
+            background-color: #333;
+            padding: 1rem;
+            z-index: 1000; /* Asegura que esté por encima de todo */
+            border-bottom-left-radius: 8px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ff9900;
+        }
+
+        /* Estilos para las secciones de ejemplo */
+        section {
+            height: 100vh; /* Cada sección ocupa toda la pantalla */
+            padding: 100px 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        #inicio { background-color: #f4f4f4; }
+        #servicios { background-color: #e2e2e2; }
+        #contacto { background-color: #d1d1d1; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section id="inicio">
+        <h1>Bienvenido a Inicio</h1>
+        <p>Esta es la primera sección.</p>
+    </section>
+
+    <section id="servicios">
+        <h1>Nuestros Servicios</h1>
+        <p>Aquí puedes ver lo que ofrecemos.</p>
+    </section>
+
+    <section id="contacto">
+        <h1>Contáctanos</h1>
+        <p>Información de contacto aquí.</p>
+    </section>
+
+</body>
+</html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
